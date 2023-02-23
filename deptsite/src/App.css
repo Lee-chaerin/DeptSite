@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+/* reset */
+html {
+  font-size: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'ChosunKg';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunKg.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* header */
+#header {
+  font-family: ChosunKg;
+  height: 100px;
+  padding: 0 10%;
+  border-bottom: solid 3px #2d6942;
+  font-size: 1.5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+#header span:first-child {
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#header span:first-child > span > h1, h4{
+  font-weight: 500;
+}
+
+#header img {
+  width: 70px;
+  margin-right: 5px;
+}
+
+#header span > ul > li {
+  padding: 39px 0 39px 30px;
+  font-size: 2.3rem;
+  display: inline;
+  position: relative;
+}
+
+#header span > ul > li:hover {
+  font-weight: 600;
+  color: #009b64;;
+}
+
+#header span > ul > li:hover > ul{
+  font-weight: 500;
+  display: block;
+}
+
+#header span > ul > li > ul {
+  width: 153px;
+  margin-left: 15px;
+  font-size: 2rem;
+  list-style-type: none;
+  text-align: center;
+  background-color: #2d6942;
+  color: #ffffff;
+  position: absolute;
+  top: 100px;
+  display: none;
+}
+
+#header span > ul > li > ul > li {
+  padding: 11px 0;
+}
+
+#header span > ul > li > ul > li:hover {
+  font-size: 2.1rem;
+  background-color: #009b64;
 }
