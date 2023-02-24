@@ -2,9 +2,9 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div id="header">
+    <div id='header'>
       <span>
-        <img src='ptuLogo.png' alt='ptuLogo'/>
+        <img src="ptuLogoH.png" alt="ptuLogo"/>
         <span>
           <h1>융합소프트웨어학과</h1>
           <h4>Department of Convergence Software</h4>

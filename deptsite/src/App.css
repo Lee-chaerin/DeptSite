@@ -24,8 +24,8 @@ html {
   border-bottom: solid 3px #2d6942;
   font-size: 1.5rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 #header span:first-child {
@@ -80,3 +80,35 @@ html {
   font-size: 2.1rem;
   background-color: #009b64;
 }
+
+
+/* footer */
+#footer {
+  font-family: ChosunKg;
+  height: 130px;
+  padding: 0 10%;
+  border-top: solid 3px #2d6942;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#footer > span > span {
+  display: block;
+  padding: 5px 0;
+}
+
+#footer span > h4 {
+  display: inline;
+  margin-right: 28px;
+}
+
+#footer span > h4 > span {
+  color: #2d6942;
+}
+
+#footer img {
+  height: 70px;
+}
+
