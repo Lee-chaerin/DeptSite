@@ -1,19 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div id='header'>
-      <span>
-        <img src="ptuLogoH.png" alt="ptuLogo"/>
+      <Link to="/">
         <span>
-          <h1>융합소프트웨어학과</h1>
-          <h4>Department of Convergence Software</h4>
+          <img src="ptuLogoH.png" alt="ptuLogo"/>
+          <span>
+            <h1>융합소프트웨어학과</h1>
+            <h4>Department of Convergence Software</h4>
+          </span>
         </span>
-      </span>
+      </Link>
 
       <span>
         <ul>
-          <li>INTRODUCE
+          <li><Link to="introduce">INTRODUCE</Link>
             <ul>
               <li>학과 소개</li>
               <li>전공교수 소개</li>
@@ -22,9 +25,9 @@ const Header = () => {
               <li>학과 갤러리</li>
             </ul>
           </li>
-          <li>STUDY</li>
-          <li>PROJECT</li>
-          <li>Q&A</li>
+          <li><Link to="study">STUDY</Link></li>
+          <li><Link to="project">PROJECT</Link></li>
+          <li><Link to="qna">Q&A</Link></li>
           <li>로그인</li>
         </ul>
       </span>

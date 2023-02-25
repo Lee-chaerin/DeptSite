@@ -28,6 +28,16 @@ html {
   align-items: center;
 }
 
+#header a {
+  color: #000000;
+  text-decoration: none;
+}
+
+#header li > a:hover {
+  font-weight: 600;
+  color: #009b64;;
+}
+
 #header span:first-child {
   display: flex;
   align-items: center;
@@ -49,11 +59,6 @@ html {
   position: relative;
 }
 
-#header span > ul > li:hover {
-  font-weight: 600;
-  color: #009b64;;
-}
-
 #header span > ul > li:hover > ul{
   font-weight: 500;
   display: block;
@@ -73,7 +78,7 @@ html {
 }
 
 #header span > ul > li > ul > li {
-  padding: 11px 0;
+  padding: 13px 0;
 }
 
 #header span > ul > li > ul > li:hover {
