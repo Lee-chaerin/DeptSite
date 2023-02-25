@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -15,7 +16,9 @@ const Footer = () => {
         </span>
       </span>
       
-      <img src="ptuLogoF.png" alt="ptuLogo"/>
+      <Link to="https://www.ptu.ac.kr/" target="_blank">
+        <img src="ptuLogoF.png" alt="ptuLogo"/>
+      </Link>
     </div>
   );
 };
