@@ -19,13 +19,16 @@ html {
 /* header */
 #header {
   font-family: ChosunKg;
+  width: 80%;
   height: 100px;
   padding: 0 10%;
   border-bottom: solid 3px #2d6942;
   font-size: 1.5rem;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
 }
 
 #header a {
@@ -117,3 +120,40 @@ html {
   height: 70px;
 }
 
+
+/* main */
+.main {
+  margin: 0 10%;
+}
+
+
+/* homePage */
+#homePage {
+  padding-top: 103px;
+}
+
+#homePage > div:first-child {
+  height: 628px;
+  background-color: pink;
+}
+
+#homePage > div:nth-child(2) {
+  padding: 15px 13%;
+  background-color: #CDCDCD;
+  display: flex;
+  justify-content: space-around;
+}
+
+#homePage > div:nth-child(2) img {
+  width: 200px;
+}
+
+#homePage > div:nth-child(3) > div:first-child {
+  height: 250px;
+  background-color: beige;
+}
+
+#homePage > div:nth-child(3) > div:nth-child(2) {
+  height: 475px;
+  background-color: darkcyan;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
-import MainPage from './pages/MainPage';
+import HomePage from './pages/HomePage';
 import IntroducePage from './pages/IntroducePage';
 import ProjectPage from './pages/ProjectPage';
 import StudyPage from './pages/StudyPage';
@@ -19,7 +19,7 @@ const App = () => {
     <>
       <Header/>
       <Routes>
-        <Route path="/" element={<MainPage/>}/>
+        <Route path="/" element={<HomePage/>}/>
         <Route path="/introduce" element={<IntroducePage/>}/>
         <Route path="/study" element={<StudyPage/>}/>
         <Route path="/project" element={<ProjectPage/>}/>
