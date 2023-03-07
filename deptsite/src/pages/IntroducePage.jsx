@@ -2,9 +2,14 @@ import React from 'react';
 
 const IntroducePage = () => {
   return (
-    <>
-      <h1>소개 페이지입니다.</h1>
-    </>
+    <div id='introducePage'>
+      <div className='banner pageTop'> 
+        <h1>INTRODUCE</h1>
+      </div>
+      <div className='main'>
+
+      </div>
+    </div>
   );
 };
 

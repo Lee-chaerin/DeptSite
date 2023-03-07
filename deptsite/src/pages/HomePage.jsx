@@ -3,7 +3,7 @@ import React from 'react';
 const HomePage = () => {
   return (
     <div id='homePage'>
-      <div className='main'>캘린더</div>
+      <div className='main pageTop'>캘린더</div>
 
       <div>
         <img src="ptuLogoH.png" alt="Introduce"/>
