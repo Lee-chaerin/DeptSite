@@ -15,6 +15,11 @@ html {
   font-style: normal;
 }
 
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+.jejugothic * { 
+ font-family: 'Jeju Gothic', sans-serif;
+}
+
 
 /* header */
 #header {
@@ -124,7 +129,8 @@ html {
 
 /* main */
 .main {
-  margin: 0 10%;
+  font-family: 'Jeju Gothic', sans-serif;
+  margin: 0 13%;
 }
 
 .pageTop {
@@ -159,7 +165,7 @@ html {
 }
 
 
-/* introducePage */
+/* banner */
 .banner {
   width: 100%;
   height: 180px;
@@ -213,3 +219,31 @@ html {
   right: 0;
 }
 */
+
+
+/* introduce */
+#introducePage > div > div {
+  height: 1000px;
+}
+
+.left {
+  width: 20%;
+  float: left;
+}
+
+.right {
+  width: 80%;
+  float: right;
+  background-color: aliceblue;
+}
+
+.left ul {
+  margin: 30px 10px 0 30px;
+}
+
+.left li {
+  list-style: none;
+  font-size: 2.6rem;
+  padding: 8px 10px;
+  border-bottom: 2px solid #2d6942;
+}
