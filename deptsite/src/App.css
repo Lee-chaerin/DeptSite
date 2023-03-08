@@ -301,8 +301,8 @@ html {
 }
 
 
-/* study, projectPage */
-#studyPage, #projectPage {
+/* study, projectPage, qnaPage */
+#studyPage, #projectPage, #qnaPage {
   height: 961px;
 }
 
@@ -336,6 +336,23 @@ html {
 }
 
 #projectPage > div > div li {
+  padding: 8px;
+  display: inline;
+}
+
+#qnaPage > div > div {
+  font-size: 2rem;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#qnaPage > div > div ul {
+  list-style: none;
+}
+
+#qnaPage > div > div li {
   padding: 8px;
   display: inline;
 }
