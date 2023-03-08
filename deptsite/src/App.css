@@ -257,7 +257,7 @@ html {
 /* noticeBoard */
 .noticeBoard {
   width: 90%;
-  margin: 25px auto 0;
+  margin: 30px auto 0;
   border-top: 2px solid #2d6942;
   border-bottom: 2px solid #2d6942;
   border-collapse: collapse;
@@ -271,11 +271,11 @@ html {
 }
 
 .noticeBoard th:first-child {
-  width: 8%;
+  width: 7%;
 }
 
 .noticeBoard th:nth-child(2) {
-  width: 14%;
+  width: 11%;
 }
 
 .noticeBoard th:nth-child(3) {
@@ -301,15 +301,15 @@ html {
 }
 
 
-/* study */
-#studyPage {
-  height: 950px;
+/* study, projectPage */
+#studyPage, #projectPage {
+  height: 961px;
 }
 
 #studyPage > div > div {
   font-size: 2rem;
   position: absolute;
-  bottom: 50px;
+  bottom: 60px;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -319,6 +319,23 @@ html {
 }
 
 #studyPage > div > div li {
+  padding: 8px;
+  display: inline;
+}
+
+#projectPage > div > div {
+  font-size: 2rem;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#projectPage > div > div ul {
+  list-style: none;
+}
+
+#projectPage > div > div li {
   padding: 8px;
   display: inline;
 }
