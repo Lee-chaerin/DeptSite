@@ -298,6 +298,7 @@ html {
 
 .noticeBoard tr > td:nth-child(3) {
   text-align: left;
+  padding-left: 2%;
 }
 
 /* boardPageBtn */

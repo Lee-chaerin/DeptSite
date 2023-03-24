@@ -18,10 +18,9 @@ const StudyTable = () => {
             id: data.id,
             writer: data.name,
             title: data.title,
-            date: data.create_time
+            date: data.create_time.substring(0, 10)
           }
         }))
-  
       } catch(e) {
         console.log(e);
       }
@@ -31,6 +30,18 @@ const StudyTable = () => {
 
   console.log(studyTable);
 
+  let post = studyTable.map(post => {
+    return(
+      <tr>
+        <td>{post.id}</td>
+        <td>{post.writer}</td>
+        <td>{post.title}</td>
+        <td>{post.date}</td>
+      </tr>
+    )
+  })
+
+  
 
   return (
     <table className='noticeBoard'>
@@ -38,37 +49,9 @@ const StudyTable = () => {
       <th>작성자</th>
       <th>제목</th>
       <th>작성일</th>
- 
-      <tr>
-        <td>1</td>
-        <td>이채린</td>
-        <td>이것은 제목이라는 것입니다.</td>
-        <td>2023.03.07</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>이채린</td>
-        <td>이것은 제목이라는 것입니다.</td>
-        <td>2023.03.07</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>이채린</td>
-        <td>이것은 제목이라는 것입니다.</td>
-        <td>2023.03.07</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>이채린</td>
-        <td>이것은 제목이라는 것입니다.</td>
-        <td>2023.03.07</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>이채린</td>
-        <td>이것은 제목이라는 것입니다.</td>
-        <td>2023.03.07</td>
-      </tr>
+
+      {post}
+
     </table>
   );
 };
