@@ -252,12 +252,31 @@ html {
   font-size: 2.6rem;
 }
 
+/* notice */
+.board {
+  width: 90%;
+  height: 600px;
+  margin: auto;
+}
 
+.board button {
+  float: right;
+  margin: 15px 0;
+  padding: 8px 15px;
+  border: 2px solid #2d6942;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  background-color: #ffffff;
+}
+
+.board button:hover {
+  color: #ffffff;
+  background-color: #009b64;
+}
 
 /* noticeBoard */
 .noticeBoard {
-  width: 90%;
-  margin: 30px auto 0;
+  width: 100%;
   border-top: 2px solid #2d6942;
   border-bottom: 2px solid #2d6942;
   border-collapse: collapse;
@@ -306,7 +325,7 @@ html {
   font-size: 2rem;
   text-align: center;
   position: relative;
-  bottom: -60px;
+  bottom: -10px;
 }
 
 .boardPageBtn ul {
@@ -322,16 +341,4 @@ html {
 /* study, projectPage, qnaPage */
 #studyPage, #projectPage, #qnaPage {
   height: 961px;
-}
-
-#studyPage > div > div:first-child {
-  height: 500px;
-}
-
-#projectPage > div > div:first-child {
-  height: 500px;
-}
-
-#qnaPage > div > div:first-child {
-  height: 500px;
 }

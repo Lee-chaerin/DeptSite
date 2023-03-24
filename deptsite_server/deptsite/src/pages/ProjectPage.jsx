@@ -7,7 +7,8 @@ const ProjectPage = () => {
         <h1>PROJECT</h1>
       </div>
       <div className='main'>
-        <div>
+        <div className='board'>
+          <button>글 작성하기</button>
           <table className='noticeBoard'>
             <th>번호</th>
             <th>작성자</th>

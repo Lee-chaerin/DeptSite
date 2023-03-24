@@ -8,7 +8,8 @@ const StudyPage = () => {
         <h1>STUDY</h1>
       </div>
       <div className='main'>
-        <div>
+        <div className='board'>
+          <button>글 작성하기</button>
           <StudyTable/>
         </div>
         <div className='boardPageBtn'>
