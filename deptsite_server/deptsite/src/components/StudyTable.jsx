@@ -13,7 +13,7 @@ const StudyTable = () => {
     async function fetchData() {
       try {
         const res = await axios.get('http://localhost:8000/api/study');
-        setStudyTable(res.data.map(data => {
+        setStudyTable(res.data.reverse().map(data => {
           return{
             id: data.id,
             writer: data.name,
