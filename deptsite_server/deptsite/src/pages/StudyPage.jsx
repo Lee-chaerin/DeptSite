@@ -1,26 +1,21 @@
-import React from 'react';
-import StudyTable from '../components/StudyTable';
+import React, { useState } from 'react';
+import StudyBoard from '../components/StudyBoard';
+import StudyWrite from '../components/StudyWrite';
 
 const StudyPage = () => {
+  const [showWritePost, setShowWritePost] = useState(true);
+
+  const writePost = () => {
+    setShowWritePost(!showWritePost);
+  }
+
   return (
     <div id='studyPage'>
       <div className='banner pageTop'>
         <h1>STUDY</h1>
       </div>
       <div className='main'>
-        <div className='board'>
-          <button>글 작성하기</button>
-          <StudyTable/>
-        </div>
-        <div className='boardPageBtn'>
-          <ul>
-            <li>&#60;</li>
-            <li>1</li>
-            <li>2</li>
-            <li>&#62;</li>
-          </ul>
-        </div>
-
+        {showWritePost ? <StudyBoard writePost={writePost}/> : <StudyWrite writePost={writePost}/>}
       </div>
     </div>
   );
