@@ -30,10 +30,10 @@ const StudyTable = () => {
 
   console.log(studyTable);
 
-  let post = studyTable.map(post => {
+  let post = studyTable.map((post, index) => {
     return(
       <tr>
-        <td>{post.id}</td>
+        <td>{studyTable.length - index}</td>
         <td>{post.writer}</td>
         <td>{post.title}</td>
         <td>{post.date}</td>
