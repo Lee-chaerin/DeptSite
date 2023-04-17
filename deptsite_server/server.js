@@ -23,10 +23,17 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/study', (req, res) => {
-  db.query('SELECT * FROM STUDY_TABLE', (err, result) => {
-    res.send(result);
-  });
+  if(req.query.id == undefined) {
+    db.query('SELECT * FROM STUDY_TABLE', (err, result) => {
+      res.send(result);
+    });
+  } else {
+    db.query('SELECT * FROM STUDY_TABLE WHERE id=?', [req.query.id], (err, result) => {
+      res.send(result);
+    });
+  }
 });
+
 
 app.post('/api/study', (req, res) => {
   db.query('INSERT INTO STUDY_TABLE (student_id, name, title, content) VALUES (?, ?, ?, ?);', [req.body.student_id, req.body.name, req.body.title, req.body.content], (err, result)=> {
