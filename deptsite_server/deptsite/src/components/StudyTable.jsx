@@ -28,11 +28,14 @@ const StudyTable = () => {
     fetchData();
   }, []);
 
-  console.log(studyTable);
+  const postClick = (e) => {
+    console.log(e.id);
+    window.location.href = `/study?id=${e.id}`
+  }
 
   let post = studyTable.map((post, index) => {
     return(
-      <tr>
+      <tr onClick={()=>postClick(post)}>
         <td>{studyTable.length - index}</td>
         <td>{post.writer}</td>
         <td>{post.title}</td>
@@ -41,17 +44,13 @@ const StudyTable = () => {
     )
   })
 
-  
-
   return (
     <table className='noticeBoard'>
       <th>번호</th>
       <th>작성자</th>
       <th>제목</th>
       <th>작성일</th>
-
       {post}
-
     </table>
   );
 };
