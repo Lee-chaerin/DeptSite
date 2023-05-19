@@ -24,16 +24,13 @@ app.get('/', (req, res) => {
 
 app.get('/api/study', (req, res) => {
   if(req.query.id != undefined) {
-    console.log("됐다")
     db.query('SELECT * FROM STUDY_TABLE WHERE id=?', [req.query.id], (err, result) => {
       res.send(result);
     });
   } else if(req.query.page != undefined) {
-    console.log("테스트?");
-
     let count = 0;
     const page = req.query.page;
-    const limit = 5;
+    let limit = 10;
     let offset = 0;
 
     async function f() {
@@ -49,7 +46,11 @@ app.get('/api/study', (req, res) => {
         await promise1;
 
         let promise2 = new Promise((resolve, reject) => {
-          promise1.then(() => {          
+          promise1.then(() => {     
+            if(offset < 0) {
+              limit = limit+offset;
+              offset = 0;
+            } 
             db.query(`SELECT * FROM STUDY_TABLE LIMIT ${limit} OFFSET ${offset}`, (err, result) => {
               res.send(result);
               resolve(result);
@@ -64,67 +65,7 @@ app.get('/api/study', (req, res) => {
       }
     }
     f();
-
-
-
-    /*
-    async function f() {
-      try {
-        const promise = await new Promise((resolve, reject) => {
-          db.query('SELECT COUNT(*) AS count FROM STUDY_TABLE', (err, result) => {
-            
-            count = result[0].count;
-            offset = count - (limit*page);
-            console.log(count)
-            console.log("offset?", offset)
-            
-          })
-          console.log(offset)
-        })
-      } catch(error) {
-        console.log(error)
-      }
-    }
-    f();
-
-    console.log("난 실행")
-
-    db.query(`SELECT * FROM STUDY_TABLE LIMIT ${limit} OFFSET ${offset}`, (err, result) => {
-      console.log("!`");
-      res.send(result);
-      count = result[0].count;
-      console.log("2", count)
-      console.log("5", offset);
-    })
-    */
-    
-
-
-    /*
-    
-
-
-    
-
-    //현재 비동기적으로 실행. 동기적으로 실행되도록 바꿔야함
-    db.query('SELECT COUNT(*) AS count FROM STUDY_TABLE', (err, result) => {
-      res.send(result);
-      count = result[0].count;
-      console.log("2", count)
-      console.log("5", offset);
-    })*/
-
-    
-    /*
-    db.query(`SELECT * FROM STUDY_TABLE LIMIT ${limit} OFFSET 3`, (err, result) => {
-      res.send(result);
-      console.log("6")
-    });*/
-
-    
-
   } else {
-    console.log("전체")
     db.query('SELECT * FROM STUDY_TABLE', (err, result) => {
       res.send(result);
     });
