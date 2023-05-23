@@ -9,7 +9,11 @@ const StudyBoard = ({writePost}) => {
     if(showPost !== false) {
       setShowPost(!showPost);
     }
-  } else {
+  } else if(/^\?page/.test(window.location.search) === true) {
+    if(showPost !== false) {
+      setShowPost(!showPost);
+    }
+  } else if(/^\?id/.test(window.location.search) === true) {
     if(showPost === false) {
       setShowPost(!showPost);
     }

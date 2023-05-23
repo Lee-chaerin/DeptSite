@@ -9,10 +9,20 @@ const StudyTable = () => {
     date: ''
   }]);
 
+
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get("page");
+
+  const[studyPage, setStudyPage] = useState(1);
+
+  useEffect(() => {
+    setStudyPage(page);
+  }, [page])
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get('http://localhost:8000/api/study');
+        const res = await axios.get(`http://localhost:8000/api/study?page=${studyPage}`);
         setStudyTable(res.data.reverse().map(data => {
           return{
             id: data.id,
@@ -26,7 +36,7 @@ const StudyTable = () => {
       }
     }
     fetchData();
-  }, []);
+  }, [studyPage]);
 
   const postClick = (e) => {
     console.log(e.id);
