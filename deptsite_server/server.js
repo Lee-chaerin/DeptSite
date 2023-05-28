@@ -22,6 +22,13 @@ app.get('/', (req, res) => {
   res.send("연결");
 })
 
+
+app.get('/api/study/count', (req, res) => {
+  db.query('SELECT COUNT(*) AS count FROM STUDY_TABLE', (err, result) => {
+    res.send(result[0]);
+  });
+});
+
 app.get('/api/study', (req, res) => {
   if(req.query.id != undefined) {
     db.query('SELECT * FROM STUDY_TABLE WHERE id=?', [req.query.id], (err, result) => {

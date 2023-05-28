@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const StudyTable = () => {
+const StudyTable = ({postNum, currentPage}) => {
   const[studyTable, setStudyTable] = useState([{
     id: 0,
     writer: '',
@@ -9,14 +9,17 @@ const StudyTable = () => {
     date: ''
   }]);
 
+  const[studyPage, setStudyPage] = useState(1);
 
   const params = new URLSearchParams(window.location.search);
   const page = params.get("page");
 
-  const[studyPage, setStudyPage] = useState(1);
 
   useEffect(() => {
-    setStudyPage(page);
+    if(page != null) {
+      setStudyPage(page)
+      currentPage(page)
+    }
   }, [page])
 
   useEffect(() => {
@@ -45,8 +48,8 @@ const StudyTable = () => {
 
   let post = studyTable.map((post, index) => {
     return(
-      <tr onClick={()=>postClick(post)}>
-        <td>{studyTable.length - index}</td>
+      <tr onClick={() => postClick(post)}>
+        <td>{(postNum - ((studyPage - 1) * 10)) - index}</td>
         <td>{post.writer}</td>
         <td>{post.title}</td>
         <td>{post.date}</td>
