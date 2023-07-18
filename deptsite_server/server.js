@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 })
 
 
+//study_table
 app.get('/api/study/count', (req, res) => {
   db.query('SELECT COUNT(*) AS count FROM STUDY_TABLE', (err, result) => {
     res.send(result[0]);
@@ -77,23 +78,7 @@ app.get('/api/study', (req, res) => {
       res.send(result);
     });
   }
-
-  /*
-  if(req.query.id == undefined) {
-    db.query('SELECT * FROM STUDY_TABLE', (err, result) => {
-      res.send(result);
-    });
-  } else if(req.query.id != undefined){
-    console.log("됐다")
-    db.query('SELECT * FROM STUDY_TABLE WHERE id=?', [req.query.id], (err, result) => {
-      res.send(result);
-    });
-  }
-  */
 });
-
-
-
 
 app.post('/api/study', (req, res) => {
   db.query('INSERT INTO STUDY_TABLE (student_id, name, title, content) VALUES (?, ?, ?, ?);', [req.body.student_id, req.body.name, req.body.title, req.body.content], (err, result)=> {
@@ -115,80 +100,77 @@ app.put('/api/study', (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql');
-const app = express();
-const path = require('path');
-
-app.use(express.json());  //who are you (제일 중요한 놈), json 읽어주기
-
-const db = mysql.createPool({
-  hoet: "localhost",
-  user: "root",
-  password: "cofls0408",
-  database: "deptsite",
+//project_table
+app.get('/api/project/count', (req, res) => {
+  db.query('SELECT COUNT(*) AS count FROM PROJECT_TABLE', (err, result) => {
+    res.send(result[0]);
+  });
 });
 
-app.use(express.urlencoded({extended: true}))
+app.get('/api/project', (req, res) => {
+  if(req.query.id != undefined) {
+    db.query('SELECT * FROM PROJECT_TABLE WHERE id=?', [req.query.id], (err, result) => {
+      res.send(result);
+    });
+  } else if(req.query.page != undefined) {
+    let count = 0;
+    const page = req.query.page;
+    let limit = 10;
+    let offset = 0;
 
-app.listen(8000, function () {
-  console.log('listening on 8000');
-}); 
+    async function f() {
+      try {
+        let promise1 = new Promise((resolve, reject) => {
+          db.query('SELECT COUNT(*) AS count FROM PROJECT_TABLE', (err, result) => {
+            count = result[0].count;
+            offset = count - (limit*page);
+            resolve();
+          });
+        });
 
-app.get('/api/study', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
+        await promise1;
 
-  const sqlQuery = "SELECT * FROM STUDY_TABLE";
+        let promise2 = new Promise((resolve, reject) => {
+          promise1.then(() => {     
+            if(offset < 0) {
+              limit = limit+offset;
+              offset = 0;
+            } 
+            db.query(`SELECT * FROM PROJECT_TABLE LIMIT ${limit} OFFSET ${offset}`, (err, result) => {
+              res.send(result);
+              resolve(result);
+            });
+          }).catch(reject);
+        });
 
-  db.query(sqlQuery, (err, result) => {
+        await promise2;
+
+      } catch(error) {
+        console.log(error)
+      }
+    }
+    f();
+  } else {
+    db.query('SELECT * FROM PROJECT_TABLE', (err, result) => {
+      res.send(result);
+    });
+  }
+});
+
+app.post('/api/project', (req, res) => {
+  db.query('INSERT INTO PROJECT_TABLE (student_id, name, title, content) VALUES (?, ?, ?, ?);', [req.body.student_id, req.body.name, req.body.title, req.body.content], (err, result)=> {
     res.send(result);
   });
 });
 
-app.post('/api/study/insert', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*"); //port 주소가 다르기 때문에 사용(CORS 에러)
- // const refs = req.body;
-  //const sqlQuery = `INSERT INTO STUDY_TABLE(student_id, name, title, content) VALUE(?);`;
-
-  
-  const {student_id,name,title,content} = req.body;
-  db.query(
-    'INSERT INTO STUDY_TABLE(student_id, name, title, content) VALUE(?, ?, ?, ?);',
-    [student_id, name,title,content],
-    (err, result) => {
-      res.send(result); //포스트맨 응답처리
-    });
-
-  console.log(req.body)
-})
-*/
-
-
-
-/*
-  db.query(sqlQuery, [refs], (err, result) => {
+app.delete('/api/project', (req, res) => {
+  db.query('DELETE FROM PROJECT_TABLE WHERE id=?;', [req.body.id], (err, result) => {
     res.send(result);
-    console.log(err.result);
-  })
-*/
+  });
+});
 
-/*
-app.use(express.static(path.join(__dirname, 'deptsite/build')));
-
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'deptsite/build/index.html'));
-})
-*/
+app.put('/api/project', (req, res) => {
+  db.query('UPDATE PROJECT_TABLE SET title=?, content=? WHERE id=?', [req.body.title, req.body.content, req.body.id], (err, result) => {
+    res.send(result);
+  });
+});
