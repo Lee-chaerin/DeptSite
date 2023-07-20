@@ -22,6 +22,19 @@ app.get('/', (req, res) => {
   res.send("연결");
 })
 
+//users
+app.get('/api/users', (req, res) => {
+  if(req.query.id != undefined) {
+    db.query('SELECT * FROM USERS WHERE student_id=?', [req.query.id], (err, result) => {
+      res.send(result);
+    })
+  } else {
+    db.query('SELECT * FROM USERS', (err, result) => {
+      res.send(result);
+    });
+  };
+});
+
 
 //study_table
 app.get('/api/study/count', (req, res) => {
