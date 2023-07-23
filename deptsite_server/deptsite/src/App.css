@@ -141,6 +141,10 @@ html {
   padding-top: 103px;
 }
 
+button {
+  font-family: 'Jeju Gothic', sans-serif;
+}
+
 /* homePage */
 #homePage > div:first-child {
   height: 628px;
@@ -509,3 +513,76 @@ html {
   background-color: #CDCDCD;
 }
 */
+
+
+
+/* loginPage */
+#loginPage > div {
+  height: 725px;
+}
+
+#loginPage > div > div {
+  width: 35%;
+  height: 300px;
+  margin: 13% auto;
+  border: 3px solid #3d6845;
+  border-radius: 25px;
+  text-align: center;
+}
+
+#loginPage > div h1 {
+  font-size: 2.8rem;
+  margin: 30px 0 40px;
+}
+
+#loginPage > div > div > div:first-of-type {
+  display: flex;
+  justify-content: center;
+}
+
+#loginPage > div > div > div > span > div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#loginPage > div > div > div > span > div p {
+  font-size: 2rem;
+}
+
+#loginPage > div > div > div > span:nth-child(1) {
+  width: 60%;
+}
+
+#loginPage > div > div > div > span:nth-child(1) input {
+  width: 70%;
+  height: 30px;
+  margin-left: 8px;
+  border: 0;
+  border-bottom: 1px solid;
+  font-size: 1.5rem;
+}
+
+
+#loginPage > div > div > div > span:nth-child(2) {
+  width: 15%;
+  margin-left: 18px;
+}
+
+#loginPage > div > div > div > span:nth-child(2) button {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #009b64;
+  border-radius: 13px;
+  background: #ffffff;
+  font-size: 1.8rem;
+}
+
+
+#loginPage > div > div > div:last-of-type button {
+  padding: 8px 15px;
+  font-size: 1.6rem;
+  background: #ffffff;
+  border: 2px solid #009b64;
+  border-radius: 15px;
+}

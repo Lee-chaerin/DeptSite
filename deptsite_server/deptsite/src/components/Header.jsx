@@ -28,7 +28,7 @@ const Header = () => {
           <li><Link to="study">STUDY</Link></li>
           <li><Link to="project">PROJECT</Link></li>
           <li><Link to="qna">Q&A</Link></li>
-          <li>로그인</li>
+          <li><Link to='login'>로그인</Link></li>
         </ul>
       </span>
 
