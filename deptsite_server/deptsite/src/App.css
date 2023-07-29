@@ -535,26 +535,26 @@ button {
   margin: 30px 0 40px;
 }
 
-#loginPage > div > div > div:first-of-type {
+#loginPage > div > div > form {
   display: flex;
   justify-content: center;
 }
 
-#loginPage > div > div > div > span > div {
+#loginPage > div > div > form > span > div {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
 }
 
-#loginPage > div > div > div > span > div p {
+#loginPage > div > div > form > span > div p {
   font-size: 2rem;
 }
 
-#loginPage > div > div > div > span:nth-child(1) {
+#loginPage > div > div > form > span:nth-child(1) {
   width: 60%;
 }
 
-#loginPage > div > div > div > span:nth-child(1) input {
+#loginPage > div > div > form > span:nth-child(1) input {
   width: 70%;
   height: 30px;
   margin-left: 8px;
@@ -564,12 +564,12 @@ button {
 }
 
 
-#loginPage > div > div > div > span:nth-child(2) {
+#loginPage > div > div > form > span:nth-child(2) {
   width: 15%;
   margin-left: 18px;
 }
 
-#loginPage > div > div > div > span:nth-child(2) button {
+#loginPage > div > div > form > span:nth-child(2) button {
   width: 100%;
   height: 100%;
   border: 2px solid #009b64;
@@ -579,7 +579,7 @@ button {
 }
 
 
-#loginPage > div > div > div:last-of-type button {
+#loginPage > div > div > div button {
   padding: 8px 15px;
   font-size: 1.6rem;
   background: #ffffff;
